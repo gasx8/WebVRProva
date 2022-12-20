@@ -1,56 +1,11 @@
 <html>
   <head>
     <title>UI Interattiva</title>
-    <script src="javascript/aframe.js"></script>
-    <script src="javascript/physics.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   </head>
   <body>
-    <h1>Ui Click</h1>
-    <a-scene embedded>
-<!-- assets -->
-      <a-assets>
-        <a-asset-item id="seggiolo" src="models/seggiolo.glb"></a-asset-item>
-        <a-asset-item id="piattaforma" src="models/piattaforma.glb"></a-asset-item>
-        <a-asset-item id="scalinata" src="models/scalinata.glb"></a-asset-item>
-        <a-mixin
-          id="frame"
-          geometry="primitive: plane; width: 3; height: 4"
-          material="color: #7BC8A4; shader: flat"
-         ></a-mixin>
-
-         <a-mixin
-           id="zoom"
-           scale="1 1 1"
-           animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
-           animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
-          ></a-mixin>
-
-      </a-assets>
-
-      <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
-      <a-entity camera look-controls wasd-controls position="1 1.5 1"></a-entity>
-<!--
-      <a-plane position="-4 2 -4" rotation="0 0 0" width="3" height="4" color="#7BC8A4"></a-plane>
-      <a-plane position="0 2 -4" rotation="0 0 0" width="3" height="4" color="#7BC8A4"></a-plane>
-      <a-plane position="4 2 -4" rotation="0 0 0" width="3" height="4" color="#7BC8A4"></a-plane> -->
-
-      <a-entity position="-4 2 -4" rotation="0 0 0" mixin="frame zoom" link="href: http://localhost/PrimoProgetto/esperienzaAR.html"  ></a-entity>
-      <a-entity position="0 2 -4" rotation="0 0 0" mixin="frame zoom"></a-entity>
-      <a-entity position="4 2 -4" rotation="0 0 0" mixin="frame zoom"></a-entity>
-
-      <a-gltf-model src="#piattaforma" position="0 0 0"></a-gltf-model>
-      <a-gltf-model src="#seggiolo" position="-12 1 5" mixin="zoom"></a-gltf-model>
-      <a-gltf-model src="#seggiolo" position="-12 1 3" mixin="zoom"></a-gltf-model>
-
-      <a-gltf-model src="#scalinata" position="-4 0 12" rotation="0 180 0"></a-gltf-model>
-      <a-gltf-model src="#scalinata" position="4 0 12" rotation="0 180 0"></a-gltf-model>
-      <a-gltf-model src="#scalinata" position="-4 0 -12" rotation="0 0 0"></a-gltf-model>
-      <a-gltf-model src="#scalinata" position="4 0 -12" rotation="0 0 0"></a-gltf-model>
-      <a-gltf-model src="#scalinata" position="12 0 -4" rotation="0 -90 0"></a-gltf-model>
-      <a-gltf-model src="#scalinata" position="12 0 4" rotation="0 -90 0"></a-gltf-model>
-      <a-gltf-model src="#scalinata" position="-12 0 -4" rotation="0 90 0"></a-gltf-model>
-      <a-gltf-model src="#scalinata" position="-12 0 4" rotation="0 90 0"></a-gltf-model>
-
-    </a-scene>
+    <model-viewer src="models/seggiolo.glb" ar ar-scale="fixed"
+                  camera-controls touch-action="pan-y" alt="A 3D model of an astronaut"
+                  xr-environment></model-viewer>
   </body>
 </html>
